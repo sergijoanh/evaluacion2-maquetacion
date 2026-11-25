@@ -15,14 +15,14 @@ catálogo), aplicada en `css/estilos.css` sobre Bootstrap 5.3.
 
 ## Archivos
 
-| Archivo | Qué haces ahí |
-|---------|---------------|
-| `index.html` | Estructura semántica, navbar, controles y grilla (issue #2) |
-| `css/estilos.css` | Guía de diseño de tu empresa con variables (issue #1) |
-| `js/datos.js` | Datos de tu tema (issue #1) |
-| `js/app.js` | Tarjetas, filtros, orden y eventos (issues #3 y #4) |
-| `ISSUES.md` | Los 5 issues que debes crear en GitHub |
-| `ENTREGA.md` | Datos de tu entrega (issue #5) |
+| Archivo                   | Qué haces ahí                                                    |
+| ------------------------- | ---------------------------------------------------------------- |
+| `index.html`              | Estructura semántica, navbar, controles y grilla (issue #2)      |
+| `css/estilos.css`         | Guía de diseño de tu empresa con variables (issue #1)            |
+| `js/datos.js`             | Datos de tu tema (issue #1)                                      |
+| `js/app.js`               | Tarjetas, filtros, orden y eventos (issues #3 y #4)              |
+| `ISSUES.md`               | Los 5 issues que debes crear en GitHub                           |
+| `ENTREGA.md`              | Datos de tu entrega (issue #5)                                   |
 | `verificar-evaluacion.js` | Revisa las pautas y calcula tu nota automática. No lo modifiques |
 
 ## Cómo empezar
@@ -34,7 +34,7 @@ catálogo), aplicada en `css/estilos.css` sobre Bootstrap 5.3.
 git init -b main
 git add .
 git commit -m "chore: plantilla inicial"
-git remote add origin https://github.com/TU-USUARIO/evaluacion2-maquetacion.git
+git remote add origin https://github.com/sergijoanh/evaluacion2-maquetacion.git
 git push -u origin main
 ```
 
