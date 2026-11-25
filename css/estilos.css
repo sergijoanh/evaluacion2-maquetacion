@@ -1,0 +1,82 @@
+/*
+ * estilos.css - Guía de estilo de MotoPartes Dosquebradas (Tema 15)
+ * Se enlaza DESPUÉS de Bootstrap, por eso puede personalizarlo.
+ */
+
+:root {
+  --marca-primario: #b91c1c;
+  --marca-secundario: #374151;
+  --marca-fondo: #f5f5f4;
+  --marca-texto: #111827;
+  --marca-fuente: 'Roboto', sans-serif;
+  --marca-fuente-titulos: 'Rajdhani', sans-serif;
+
+  --bs-body-bg: var(--marca-fondo);
+  --bs-body-color: var(--marca-texto);
+  --bs-body-font-family: var(--marca-fuente);
+}
+
+h1, h2, h3 {
+  font-family: var(--marca-fuente-titulos);
+  font-weight: 700;
+}
+
+.navbar {
+  background-color: var(--marca-primario);
+}
+
+.hero-marca {
+  background-color: #f3e5e5;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.btn-primario-marca {
+  background-color: var(--marca-primario);
+  border-color: var(--marca-primario);
+  color: #ffffff;
+}
+
+.btn-primario-marca:hover,
+.btn-primario-marca:focus {
+  background-color: #991b1b;
+  border-color: #991b1b;
+  color: #ffffff;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--marca-primario);
+  --bs-btn-border-color: var(--marca-primario);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--marca-primario);
+  --bs-btn-hover-border-color: var(--marca-primario);
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: var(--marca-primario);
+  --bs-btn-active-border-color: var(--marca-primario);
+}
+
+.btn-outline-primary[aria-pressed="true"] {
+  background-color: var(--marca-primario);
+  border-color: var(--marca-primario);
+  color: #ffffff;
+}
+
+.badge-marca {
+  background-color: var(--marca-secundario);
+  color: #ffffff;
+}
+
+.precio-marca {
+  color: var(--marca-primario);
+  font-family: var(--marca-fuente-titulos);
+  font-size: 1.25rem;
+}
+
+.footer-marca {
+  background-color: var(--marca-texto);
+  color: #f9fafb;
+}
+
+:focus-visible {
+  outline: 3px solid var(--marca-secundario);
+  outline-offset: 2px;
+}

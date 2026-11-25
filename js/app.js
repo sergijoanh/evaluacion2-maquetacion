@@ -87,10 +87,15 @@ function filtrarPorCategoria(lista, categoria) {
 // texto, sin importar mayúsculas ni espacios al inicio o al final.
 // Si el texto está vacío, devuelve todos.
 function buscarPorTexto(lista, texto) {
-  if (!categoria || categoria === 'todas') {
+  const consulta = String(texto || '').trim().toLowerCase();
+  if (!consulta) {
     return [...lista];
   }
-  return lista.filter((item) => item.categoria === categoria);
+  return lista.filter(
+    (item) =>
+      item.nombre.toLowerCase().includes(consulta) ||
+      item.descripcion.toLowerCase().includes(consulta)
+  );
 }
 
 // TODO: devuelve una COPIA ordenada según el criterio:
@@ -98,13 +103,24 @@ function buscarPorTexto(lista, texto) {
 //   'valor-asc'   de menor a mayor según item[configuracion.campoOrden]
 //   'valor-desc'  de mayor a menor
 function ordenarItems(lista, criterio) {
+  const copia = [...lista];
+  const campo = configuracion.campoOrden;
 
+  if (criterio === 'valor-asc') {
+    return copia.sort((a, b) => a[campo] - b[campo]);
+  }
+  if (criterio === 'valor-desc') {
+    return copia.sort((a, b) => b[campo] - a[campo]);
+  }
+  return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 }
 
 // TODO: aplica las tres funciones anteriores en cadena según el estado
 // ({ categoria, texto, orden }) y devuelve la lista resultante.
 function aplicarFiltros(lista, estadoActual) {
-
+  const porCategoria = filtrarPorCategoria(lista, estadoActual.categoria);
+  const porTexto = buscarPorTexto(porCategoria, estadoActual.texto);
+  return ordenarItems(porTexto, estadoActual.orden);
 }
 
 /* ---------------------------------------------------------------
@@ -115,7 +131,13 @@ function aplicarFiltros(lista, estadoActual) {
 // resultado en #catalogo con innerHTML y actualiza #contador
 // (por ejemplo "Mostrando 5 de 12 resultados").
 function actualizarVista() {
+  const catalogo = document.getElementById('catalogo');
+  const contador = document.getElementById('contador');
+  if (!catalogo || !contador) return;
 
+  const filtrados = aplicarFiltros(items, estado);
+  catalogo.innerHTML = generarHTML(filtrados);
+  contador.textContent = `Mostrando ${filtrados.length} de ${items.length} resultados`;
 }
 
 // TODO: conecta los eventos y pinta por primera vez.
@@ -125,7 +147,33 @@ function actualizarVista() {
 //   change en #orden: actualiza estado.orden
 // Después de cada cambio llama a actualizarVista().
 function iniciar() {
+  const botonesFiltro = document.querySelectorAll('[data-categoria]');
+  const buscador = document.getElementById('buscador');
+  const selectOrden = document.getElementById('orden');
 
+  botonesFiltro.forEach((boton) => {
+    boton.addEventListener('click', () => {
+      estado.categoria = boton.getAttribute('data-categoria');
+      botonesFiltro.forEach((b) => b.setAttribute('aria-pressed', b === boton ? 'true' : 'false'));
+      actualizarVista();
+    });
+  });
+
+  if (buscador) {
+    buscador.addEventListener('input', (e) => {
+      estado.texto = e.target.value;
+      actualizarVista();
+    });
+  }
+
+  if (selectOrden) {
+    selectOrden.addEventListener('change', (e) => {
+      estado.orden = e.target.value;
+      actualizarVista();
+    });
+  }
+
+  actualizarVista();
 }
 
 // No cambies estas líneas: así el archivo también carga en el verificador,

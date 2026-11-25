@@ -29,7 +29,7 @@
 const configuracion = {
   titulo: 'MotoPartes Dosquebradas',
   campoOrden: 'precio',
-  etiquetaValor: 'precio'
+  etiquetaValor: 'Precio'
 };
 
 const items = [
