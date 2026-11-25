@@ -33,15 +33,16 @@ const configuracion = {
 };
 
 const items = [
-  // Ejemplo de la forma (tema Mercado campesino). Bórralo y escribe los tuyos.
-  // {
-  //   id: 1,
-  //   nombre: 'Mora de Castilla',
-  //   categoria: 'frutas',
-  //   descripcion: 'Mora fresca de las veredas de Santa Rosa de Cabal.',
-  //   imagen: 'img/placeholder.svg',
-  //   precio: 6500,
-  //   unidad: 'libra',
-  //   municipio: 'Santa Rosa de Cabal'
-  // },
+  { id: 1, nombre: 'Kit de arrastre', categoria: 'motor', descripcion: 'Cadena, piñón y corona reforzados.', imagen: 'img/placeholder.svg', precio: 145000, referencia: 'KA-428', motoCompatible: 'Boxer 100' },
+  { id: 2, nombre: 'Filtro de aceite', categoria: 'motor', descripcion: 'Filtro de alta retención de partículas.', imagen: 'img/placeholder.svg', precio: 18000, referencia: 'FA-112', motoCompatible: 'Pulsar 180' },
+  { id: 3, nombre: 'Bujía iridio', categoria: 'motor', descripcion: 'Mejor arranque y menor consumo.', imagen: 'img/placeholder.svg', precio: 35000, referencia: 'BI-07', motoCompatible: 'NKD 125' },
+  { id: 4, nombre: 'Pastillas de freno', categoria: 'frenos', descripcion: 'Pastillas delanteras semimetálicas.', imagen: 'img/placeholder.svg', precio: 42000, referencia: 'PF-210', motoCompatible: 'Pulsar 180' },
+  { id: 5, nombre: 'Disco de freno', categoria: 'frenos', descripcion: 'Disco delantero de acero inoxidable.', imagen: 'img/placeholder.svg', precio: 165000, referencia: 'DF-276', motoCompatible: 'FZ 2.0' },
+  { id: 6, nombre: 'Bandas traseras', categoria: 'frenos', descripcion: 'Bandas para freno de tambor.', imagen: 'img/placeholder.svg', precio: 28000, referencia: 'BT-110', motoCompatible: 'Boxer 100' },
+  { id: 7, nombre: 'Batería 12V', categoria: 'electrico', descripcion: 'Batería sellada libre de mantenimiento.', imagen: 'img/placeholder.svg', precio: 120000, referencia: 'BT-5L', motoCompatible: 'NKD 125' },
+  { id: 8, nombre: 'Direccionales LED', categoria: 'electrico', descripcion: 'Par de direccionales de luz LED.', imagen: 'img/placeholder.svg', precio: 38000, referencia: 'DL-02', motoCompatible: 'Universal' },
+  { id: 9, nombre: 'Regulador de voltaje', categoria: 'electrico', descripcion: 'Protege la batería y las luces.', imagen: 'img/placeholder.svg', precio: 55000, referencia: 'RV-14', motoCompatible: 'Pulsar 180' },
+  { id: 10, nombre: 'Llanta delantera', categoria: 'llantas', descripcion: 'Llanta 90/90-18 para ciudad.', imagen: 'img/placeholder.svg', precio: 160000, referencia: 'LL-9018', motoCompatible: 'Boxer 100' },
+  { id: 11, nombre: 'Llanta trasera', categoria: 'llantas', descripcion: 'Llanta 110/90-17 de buen agarre.', imagen: 'img/placeholder.svg', precio: 210000, referencia: 'LL-11017', motoCompatible: 'FZ 2.0' },
+  { id: 12, nombre: 'Neumático interior', categoria: 'llantas', descripcion: 'Neumático rin 18 de caucho natural.', imagen: 'img/placeholder.svg', precio: 25000, referencia: 'NI-18', motoCompatible: 'Universal' }
 ];
