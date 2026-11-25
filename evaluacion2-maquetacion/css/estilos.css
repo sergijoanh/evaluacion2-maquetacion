@@ -34,7 +34,41 @@
  */
 
 :root {
-  .rajdhani-light {
+  --marca-primario: #b91c1c;
+  --marca-secundario: #374151;
+  --marca-fondo: #f5f5f4;
+  --marca-texto: #111827;
+  --marca-fuente: 'Roboto', sans-serif;
+  --marca-fuente-titulos: 'Rajdhani', sans-serif;
+
+  --bs-body-bg: var(--marca-fondo);
+  --bs-body-color: var(--marca-texto);
+  --bs-body-font-family: var(--marca-fuente);
+}
+
+h1, h2, h3 {
+  font-family: var(--marca-fuente-titulos);
+}
+
+.navbar {
+  background-color: var(--marca-primario);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--marca-primario);
+  --bs-btn-border-color: var(--marca-primario);
+  --bs-btn-hover-bg: var(--marca-primario);
+  --bs-btn-hover-border-color: var(--marca-primario);
+  --bs-btn-active-bg: var(--marca-primario);
+  --bs-btn-active-border-color: var(--marca-primario);
+}
+
+:focus-visible {
+  outline: 3px solid var(--marca-secundario);
+  outline-offset: 2px;
+}
+
+.rajdhani-light {
   font-family: "Rajdhani", sans-serif;
   font-weight: 300;
   font-style: normal;
