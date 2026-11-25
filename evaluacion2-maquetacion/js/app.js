@@ -35,14 +35,38 @@ const estado = {
 // un badge con la categoría, la descripción, el valor de
 // item[configuracion.campoOrden] con su etiqueta, y tus 2 campos propios.
 function crearCard(item) {
-
+  const valorFormateado = Number(item[configuracion.campoOrden]).toLocaleString('es-CO');
+  return `
+    <div class="col">
+      <article class="card h-100 rounded-0 shadow-sm">
+        <img src="${item.imagen}" class="card-img-top rounded-0" alt="${item.nombre} - ${item.motoCompatible}">
+        <div class="card-body d-flex flex-column">
+          <div class="mb-2">
+            <span class="badge badge-marca rounded-0 text-uppercase">${item.categoria}</span>
+          </div>
+          <h3 class="card-title h5 mb-2">${item.nombre}</h3>
+          <p class="card-text small text-muted mb-3">${item.descripcion}</p>
+          <ul class="list-unstyled small mb-3">
+            <li><strong>Referencia:</strong> ${item.referencia}</li>
+            <li><strong>Moto compatible:</strong> ${item.motoCompatible}</li>
+          </ul>
+          <p class="precio-marca fw-bold mt-auto mb-0">
+            ${configuracion.etiquetaValor}: $${valorFormateado}
+          </p>
+        </div>
+      </article>
+    </div>
+  `;
 }
 
 // TODO: devuelve el HTML de TODAS las tarjetas de la lista (map + join).
 // Si la lista está vacía, devuelve un mensaje (por ejemplo un <p>) que
 // diga que no hay resultados.
 function generarHTML(lista) {
-
+  if (!Array.isArray(lista) || lista.length === 0) {
+    return '<div class="col-12"><p class="text-center py-4 text-muted">No hay repuestos que coincidan con tu búsqueda.</p></div>';
+  }
+  return lista.map(crearCard).join('');
 }
 
 /* ---------------------------------------------------------------
@@ -53,14 +77,20 @@ function generarHTML(lista) {
 // TODO: devuelve solo los elementos de esa categoría.
 // Si categoria es 'todas', devuelve todos.
 function filtrarPorCategoria(lista, categoria) {
-
+  if (!categoria || categoria === 'todas') {
+    return [...lista];
+  }
+  return lista.filter((item) => item.categoria === categoria);
 }
 
 // TODO: devuelve los elementos cuyo nombre o descripcion contienen el
 // texto, sin importar mayúsculas ni espacios al inicio o al final.
 // Si el texto está vacío, devuelve todos.
 function buscarPorTexto(lista, texto) {
-
+  if (!categoria || categoria === 'todas') {
+    return [...lista];
+  }
+  return lista.filter((item) => item.categoria === categoria);
 }
 
 // TODO: devuelve una COPIA ordenada según el criterio:
